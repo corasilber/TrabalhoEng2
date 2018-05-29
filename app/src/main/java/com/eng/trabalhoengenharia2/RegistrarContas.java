@@ -1,5 +1,6 @@
 package com.eng.trabalhoengenharia2;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,13 +40,21 @@ public class RegistrarContas extends AppCompatActivity {
                 if(energia.isChecked()) tipoConta = TipoConta.ENERGIA;
                 if(agua.isChecked()) tipoConta = TipoConta.AGUA;
 
+                if(!mes.getText().toString().isEmpty() || !ano.getText().toString().isEmpty() || !leituraAnterior.getText().toString().isEmpty()
+                            || leituraAtual.getText().toString().isEmpty()){
 
-                int mesConta = Integer.parseInt(mes.getText().toString());
-                int anoConta = Integer.parseInt(mes.getText().toString());
-                double anterior = Double.parseDouble(leituraAnterior.getText().toString());
-                double atual = Double.parseDouble(leituraAtual.getText().toString());
+                     int mesConta = Integer.parseInt(mes.getText().toString());
+                     int anoConta = Integer.parseInt(ano.getText().toString());
+                     double anterior = Double.parseDouble(leituraAnterior.getText().toString());
+                     double atual = Double.parseDouble(leituraAtual.getText().toString());
 
-                Conta conta = new Conta(titularConta, tipoConta, mesConta, anoConta, anterior, atual);
+                     Conta conta = new Conta(titularConta, tipoConta, mesConta, anoConta, anterior, atual);
+
+                     finish();
+
+                } else {
+                    Snackbar.make(v, "Adicione todos os campos!", Snackbar.LENGTH_LONG).show();
+                }
 
                 //salvar essa conta em algum lugar?
 

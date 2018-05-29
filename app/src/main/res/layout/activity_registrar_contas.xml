@@ -27,7 +27,7 @@
         android:layout_marginStart="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="CPF/CNPJ Titular"
+        android:hint="CPF/CNPJ Titular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="number"
-        android:text="Mês"
+        android:hint="Mês"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="number"
-        android:text="Ano"
+        android:hint="Ano"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,11 +67,11 @@
         android:id="@+id/leituraAnterior"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
+        android:layout_marginStart="72dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="Leitura anterior"
         android:inputType="number"
-        android:text="Leitura anterior"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ano" />
 
@@ -79,11 +79,11 @@
         android:id="@+id/leituraAtual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="Leitura atual"
         android:inputType="number"
-        android:text="Leitura atual"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/leituraAnterior" />
 
@@ -93,10 +93,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:text="m³ / kW/h"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/leituraAnterior"
         app:layout_constraintTop_toBottomOf="@+id/ano" />
 
@@ -111,7 +111,7 @@
         android:text="m³ / kW/h"
         app:layout_constraintBottom_toTopOf="@+id/cadastrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/leituraAtual"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.0" />
@@ -137,10 +137,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="72dp"
         android:layout_marginTop="8dp"
         android:text="Energia"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/titular"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox2"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="1.0" />
@@ -150,11 +154,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
-        android:layout_marginEnd="84dp"
+        android:layout_marginEnd="72dp"
         android:layout_marginTop="8dp"
         android:text="Água"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/titular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="1.0" />
+
+
 </android.support.constraint.ConstraintLayout>
