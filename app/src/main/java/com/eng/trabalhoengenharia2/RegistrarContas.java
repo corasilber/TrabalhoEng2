@@ -41,7 +41,7 @@ public class RegistrarContas extends AppCompatActivity {
                 if(agua.isChecked()) tipoConta = TipoConta.AGUA;
 
                 if(!mes.getText().toString().isEmpty() || !ano.getText().toString().isEmpty() || !leituraAnterior.getText().toString().isEmpty()
-                            || leituraAtual.getText().toString().isEmpty()){
+                            || !leituraAtual.getText().toString().isEmpty()){
 
                      int mesConta = Integer.parseInt(mes.getText().toString());
                      int anoConta = Integer.parseInt(ano.getText().toString());
