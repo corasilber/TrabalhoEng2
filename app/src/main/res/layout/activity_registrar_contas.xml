@@ -67,7 +67,7 @@
         android:layout_margin="8dp"
         android:ems="10"
         android:layout_gravity="center"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:hint="Ano" />
 
     <LinearLayout
@@ -82,7 +82,7 @@
             android:layout_margin="8dp"
             android:ems="10"
             android:hint="Leitura anterior"
-            android:inputType="number" />
+            android:inputType="numberDecimal" />
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -108,7 +108,7 @@
             android:ems="10"
             android:layout_gravity="center"
             android:hint="Leitura atual"
-            android:inputType="number" />
+            android:inputType="numberDecimal" />
 
         <TextView
             android:id="@+id/textView3"

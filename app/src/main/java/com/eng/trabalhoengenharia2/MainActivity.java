@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,19 +21,44 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        Button registrarConta= (Button) findViewById(R.id.registrarConta);
+        Button gerarRelatorio = (Button) findViewById(R.id.gerarRelatorio);
+        Button exibirMes = (Button) findViewById(R.id.exibirMes);
+        Button exibirConta = (Button) findViewById(R.id.exibirConta);
+
+
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
+            }
+        });
+
+        registrarConta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 abrirRegistrarConta();
+            }
+        });
+
+        gerarRelatorio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirGerarRelatorio();
             }
         });
     }
 
     public void abrirRegistrarConta(){
         Intent mudaTela = new Intent(this, RegistrarContas.class);
+        startActivity(mudaTela);
+    }
+
+    public void abrirGerarRelatorio(){
+        Intent mudaTela = new Intent(this, GerarRelatorio.class );
         startActivity(mudaTela);
     }
 

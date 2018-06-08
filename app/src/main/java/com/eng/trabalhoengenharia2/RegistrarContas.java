@@ -40,8 +40,6 @@ public class RegistrarContas extends AppCompatActivity {
                 if(energia.isChecked()) tipoConta = TipoConta.ENERGIA;
                 if(agua.isChecked()) tipoConta = TipoConta.AGUA;
 
-                if(!mes.getText().toString().isEmpty() || !ano.getText().toString().isEmpty() || !leituraAnterior.getText().toString().isEmpty()
-                            || !leituraAtual.getText().toString().isEmpty()){
 
                      int mesConta = Integer.parseInt(mes.getText().toString());
                      int anoConta = Integer.parseInt(ano.getText().toString());
@@ -52,9 +50,6 @@ public class RegistrarContas extends AppCompatActivity {
 
                      finish();
 
-                } else {
-                    Snackbar.make(v, "Adicione todos os campos!", Snackbar.LENGTH_LONG).show();
-                }
 
                 //salvar essa conta em algum lugar?
 

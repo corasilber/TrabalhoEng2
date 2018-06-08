@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistrarContas"></activity>
+        <activity android:name=".RegistrarContas" />
+        <activity android:name=".GerarRelatorio"></activity>
     </application>
 
 </manifest>
