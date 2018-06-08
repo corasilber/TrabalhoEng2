@@ -11,48 +11,37 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
 import java.util.ArrayList;
 
-public class TelaExibirConta extends AppCompatActivity {
-
-    FirebaseDatabase database;
-    DatabaseReference ref;
+public class ListaMes extends AppCompatActivity {
 
     ListView list;
     ArrayAdapter<String> adapter;
     ArrayList<String> itemList;
-    String titular;
-
-    public TelaExibirConta() {
-        database = FirebaseDatabase.getInstance();
-        ref = database.getReference("leituras");
-    }
+    FirebaseDatabase database;
+    DatabaseReference ref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_exibir_conta);
+        setContentView(R.layout.activity_lista_mes);
 
-        titular = getIntent().getStringExtra("titular");
 
         itemList = new ArrayList<>();
         adapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.label, itemList);
         list = (ListView)findViewById(R.id.lista);
         list.setAdapter(adapter);
 
+        database = FirebaseDatabase.getInstance();
+        ref = database.getReference("leituras");
+
         // Attach a listener to read the data at our posts reference
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Conta conta = snapshot.getValue(Conta.class);
-                    if(titular.equals(conta.getTitular())) {
-                        itemList.add("Tipo: " + conta.getTipoConta() + " Valor: " + conta.getLeituraAtual());
-                    }
-                }
-
-                if(itemList.size() < 1) {
-                    itemList.add("Nenhum registro encontrado.");
+                    Conta conta = dataSnapshot.getValue(Conta.class);
+                    itemList.add("Tipo: " + conta.getTipoConta() + " Valor: " + conta.getLeituraAtual());
                 }
                 adapter.notifyDataSetChanged();
             }

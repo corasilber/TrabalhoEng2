@@ -2,8 +2,8 @@ package com.eng.trabalhoengenharia2;
 
 public enum TipoConta {
 
-    ENERGIA("Energia"),
-    AGUA("Água");
+    ENERGIA("ENERGIA"),
+    AGUA("AGUA");
 
     private String descricao;
 

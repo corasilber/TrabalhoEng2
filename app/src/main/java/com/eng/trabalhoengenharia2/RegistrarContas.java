@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class RegistrarContas extends AppCompatActivity {
 
     Button botaoAdiciona;
@@ -31,28 +34,28 @@ public class RegistrarContas extends AppCompatActivity {
         botaoAdiciona.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 TipoConta tipoConta = null;
                 Titular titularConta = new Titular(titular.getText().toString());
 
                 //dar um find no titular ?
 
-                if(energia.isChecked()) tipoConta = TipoConta.ENERGIA;
-                if(agua.isChecked()) tipoConta = TipoConta.AGUA;
+                 if(energia.isChecked()) tipoConta = TipoConta.ENERGIA;
+                 if(agua.isChecked()) tipoConta = TipoConta.AGUA;
 
 
-                     int mesConta = Integer.parseInt(mes.getText().toString());
-                     int anoConta = Integer.parseInt(ano.getText().toString());
-                     double anterior = Double.parseDouble(leituraAnterior.getText().toString());
-                     double atual = Double.parseDouble(leituraAtual.getText().toString());
+                 int mesConta = Integer.parseInt(mes.getText().toString());
+                 int anoConta = Integer.parseInt(ano.getText().toString());
+                 double anterior = Double.parseDouble(leituraAnterior.getText().toString());
+                 double atual = Double.parseDouble(leituraAtual.getText().toString());
 
-                     Conta conta = new Conta(titularConta, tipoConta, mesConta, anoConta, anterior, atual);
+                 Conta conta = new Conta(titularConta, tipoConta, mesConta, anoConta, anterior, atual);
 
-                     finish();
+                // Write a message to the database
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("leituras");
 
-
-                //salvar essa conta em algum lugar?
-
+                myRef.push().setValue(conta);
+                finish();
             }
         });
     }
