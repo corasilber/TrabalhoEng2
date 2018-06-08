@@ -20,22 +20,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         Button registrarConta= (Button) findViewById(R.id.registrarConta);
         Button gerarRelatorio = (Button) findViewById(R.id.gerarRelatorio);
         Button exibirMes = (Button) findViewById(R.id.exibirMes);
         Button exibirConta = (Button) findViewById(R.id.exibirConta);
-
-
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-            }
-        });
+        Button calculaVariacao = (Button) findViewById(R.id.calculaVariacao);
 
         registrarConta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,12 +33,52 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        exibirMes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirExibirMes();
+            }
+        });
+
+        exibirConta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirExibirConta();
+            }
+        });
+
+
         gerarRelatorio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 abrirGerarRelatorio();
             }
         });
+
+
+        calculaVariacao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirCalculaVariacao();
+            }
+        });
+    }
+
+    public void abrirCalculaVariacao(){
+        Intent mudaTela = new Intent(this, ExibirMes.class);
+        mudaTela.putExtra("tela", "calculaVariacao");
+        startActivity(mudaTela);
+    }
+
+    public void abrirExibirConta(){
+        Intent mudaTela = new Intent(this, ExibirConta.class);
+        startActivity(mudaTela);
+    }
+
+    public void abrirExibirMes(){
+        Intent mudaTela = new Intent(this, ExibirMes.class);
+        mudaTela.putExtra("tela", "exibirMes");
+        startActivity(mudaTela);
     }
 
     public void abrirRegistrarConta(){

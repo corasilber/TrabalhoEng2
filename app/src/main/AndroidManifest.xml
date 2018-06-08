@@ -20,7 +20,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegistrarContas" />
-        <activity android:name=".GerarRelatorio"></activity>
+        <activity android:name=".GerarRelatorio" />
+        <activity android:name=".TelaGerarRelatorio" />
+        <activity android:name=".ExibirMes" />
+        <activity android:name=".TelaExibirMes" />
+        <activity android:name=".ExibirConta" />
+        <activity android:name=".TelaExibirConta" />
+        <activity android:name=".TelaCalculaVariacao"></activity>
     </application>
 
 </manifest>

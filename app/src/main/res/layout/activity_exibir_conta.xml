@@ -5,50 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".GerarRelatorio">
-
+    tools:context=".ExibirConta">
 
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:text="Digite um titular"
         android:textSize="20dp"
-        android:layout_marginTop="45dp"
-        android:text="Selecione a conta para gerar o relatório" />
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="50dp"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="85dp" />
 
-    <CheckBox
-        android:id="@+id/checkEnergia"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="50dp"
-        android:text="Energia" />
-
-    <CheckBox
-        android:id="@+id/checkAgua"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:text="Água" />
+        android:text="Titular"
+        android:textSize="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="85dp" />
 
     <EditText
-        android:id="@+id/ano"
+        android:id="@+id/titular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Ano"
-        android:inputType="number" />
-
+        android:inputType="textPersonName"
+         />
 
     <Button
-        android:id="@+id/gerarRelatorio"
+        android:id="@+id/exibirConta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:width="220dp"
+        android:layout_marginTop="30dp"
+        android:width="50dp"
         android:layout_gravity="center"
-        android:text="Gerar Relatório" />
-
+        android:text="Exibir" />
 
 </LinearLayout>
