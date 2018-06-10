@@ -26,7 +26,8 @@
         <activity android:name=".TelaExibirMes" />
         <activity android:name=".ExibirConta" />
         <activity android:name=".TelaExibirConta" />
-        <activity android:name=".TelaCalculaVariacao"></activity>
+        <activity android:name=".TelaCalculaVariacao" />
+        <activity android:name=".ListaMes"></activity>
     </application>
 
 </manifest>
