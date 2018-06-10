@@ -2,7 +2,7 @@ package com.eng.trabalhoengenharia2;
 
 public class Conta {
 
-    private String titular;
+    private Titular titular;
     private TipoConta tipoConta;
     private int mes;
     private int ano;
@@ -12,7 +12,7 @@ public class Conta {
     public Conta(){}
 
     public Conta(Titular titular, TipoConta tipoConta, int mes, int ano, double leituraAnterior, double leituraAtual) {
-        this.titular = titular.getCPForCNPj();
+        this.titular = titular;
         this.tipoConta = tipoConta;
         this.mes = mes;
         this.ano = ano;
@@ -28,11 +28,11 @@ public class Conta {
         this.tipoConta = tipoConta;
     }
 
-    public String getTitular() {
+    public Titular getTitular() {
         return titular;
     }
 
-    public void setTitular(String titular) {
+    public void setTitular(Titular titular) {
         this.titular = titular;
     }
 

@@ -2,65 +2,19 @@ package com.eng.trabalhoengenharia2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class TelaExibirConta extends AppCompatActivity {
 
-    FirebaseDatabase database;
-    DatabaseReference ref;
-
-    ListView list;
-    ArrayAdapter<String> adapter;
-    ArrayList<String> itemList;
-    String titular;
-
-    public TelaExibirConta() {
-        database = FirebaseDatabase.getInstance();
-        ref = database.getReference("leituras");
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_exibir_conta);
 
-        titular = getIntent().getStringExtra("titular");
+        ListaDeConta listaDeConta = new ListaDeConta();
+        String titular = getIntent().getStringExtra("titular");
 
-        itemList = new ArrayList<>();
-        adapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.label, itemList);
-        list = (ListView)findViewById(R.id.lista);
-        list.setAdapter(adapter);
-
-        // Attach a listener to read the data at our posts reference
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Conta conta = snapshot.getValue(Conta.class);
-                    if(titular.equals(conta.getTitular())) {
-                        itemList.add("Tipo: " + conta.getTipoConta() + " Valor: " + conta.getLeituraAtual());
-                    }
-                }
-
-                if(itemList.size() < 1) {
-                    itemList.add("Nenhum registro encontrado.");
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
+        //retorna a lista com as contas do titular desejado
+        //criar list view com essa lista
+       // listaDeConta.buscaPorTitular(titular);
     }
 }
