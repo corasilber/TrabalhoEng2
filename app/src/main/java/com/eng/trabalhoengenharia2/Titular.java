@@ -14,8 +14,6 @@ public class Titular {
         this.CPForCNPj = numero;
     }
 
-    public String getCPForCNPj() { return CPForCNPj; }
-
     public String getNome() {
         return nome;
     }
