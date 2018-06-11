@@ -1,4 +1,4 @@
-package com.eng.trabalhoengenharia2;
+package com.eng.trabalhoengenharia2.Controles;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
+import com.eng.trabalhoengenharia2.Entidades.Conta;
+import com.eng.trabalhoengenharia2.Entidades.TipoConta;
+import com.eng.trabalhoengenharia2.Entidades.Titular;
+import com.eng.trabalhoengenharia2.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -16,6 +20,7 @@ public class RegistrarContas extends AppCompatActivity {
     Button botaoAdiciona;
     EditText titular, mes, ano, leituraAnterior, leituraAtual;
     CheckBox energia, agua;
+    boolean ehPessoaFisica = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,10 @@ public class RegistrarContas extends AppCompatActivity {
             public void onClick(View v) {
                 TipoConta tipoConta = null;
                 Titular titularConta = new Titular(titular.getText().toString());
+
+                if(titular.getText().toString().length() > 11){
+                    ehPessoaFisica = true;
+                }
 
                 //dar um find no titular ?
 
@@ -62,7 +71,7 @@ public class RegistrarContas extends AppCompatActivity {
                  double anterior = Double.parseDouble(leituraAnterior.getText().toString());
                  double atual = Double.parseDouble(leituraAtual.getText().toString());
 
-                 Conta conta = new Conta(titularConta, tipoConta, mesConta, anoConta, anterior, atual, atual - anterior);
+                 Conta conta = new Conta(titularConta, tipoConta, mesConta, anoConta, anterior, atual - anterior, ehPessoaFisica);
 
                 // Write a message to the database
                 FirebaseDatabase database = FirebaseDatabase.getInstance();

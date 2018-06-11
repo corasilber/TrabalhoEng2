@@ -1,10 +1,12 @@
-package com.eng.trabalhoengenharia2;
+package com.eng.trabalhoengenharia2.Controles;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.eng.trabalhoengenharia2.Entidades.Conta;
+import com.eng.trabalhoengenharia2.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +36,6 @@ public class TelaCalculaVariacao extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_calcula_variacao);
-        ListaDeConta listaDeConta = new ListaDeConta();
 
         String stringMes = getIntent().getStringExtra("mes");
         String stringAno = getIntent().getStringExtra("ano");
@@ -44,7 +45,6 @@ public class TelaCalculaVariacao extends AppCompatActivity {
         final int ano = Integer.parseInt(stringAno);
 
         //vai retornar a lista com o calculo das variacoes
-        //listaDeConta.calcularVariacao(mes, ano);
 
         itemList = new ArrayList<>();
         adapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.label, itemList);

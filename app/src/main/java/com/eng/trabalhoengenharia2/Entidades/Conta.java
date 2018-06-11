@@ -1,4 +1,4 @@
-package com.eng.trabalhoengenharia2;
+package com.eng.trabalhoengenharia2.Entidades;
 
 public class Conta {
 
@@ -11,11 +11,13 @@ public class Conta {
     private double valorConta;
     private double leituraMes;
     private Conta contaAnoAnterior;
+    private boolean pessoaFisica;
 
     public Conta(){}
 
-    public Conta(Titular titular, TipoConta tipoConta, int mes, int ano, double leituraAnterior, double leituraAtual, double leituraMes) {
-        this.titular = titular.getCPForCNPj();
+    public Conta(Titular titular, TipoConta tipoConta, int mes, int ano, double leituraAnterior, double leituraAtual, boolean pessoa) {
+        if(pessoa) this.titular = titular.getCPF();
+        if(!pessoa) this.titular = titular.getCNPJ();
         this.tipoConta = tipoConta;
         this.mes = mes;
         this.ano = ano;
@@ -63,6 +65,14 @@ public class Conta {
 
     public void setLeituraAnterior(double leituraAnterior) {
         this.leituraAnterior = leituraAnterior;
+    }
+
+    public boolean isPessoaFisica() {
+        return pessoaFisica;
+    }
+
+    public void setPessoaFisica(boolean pessoaFisica) {
+        this.pessoaFisica = pessoaFisica;
     }
 
     public double getLeituraAtual() {

@@ -1,20 +1,23 @@
-package com.eng.trabalhoengenharia2;
+package com.eng.trabalhoengenharia2.Entidades;
 
 public class Titular {
 
     private String nome;
     private String CPF;
     private String CNPJ;
-    private String CPForCNPj;
 
     public Titular() {
     }
 
+
     public Titular(String numero){
-        this.CPForCNPj = numero;
+        if(numero.length() > 11){
+            setCPF(numero);
+        } else {
+            setCNPJ(numero);
+        }
     }
 
-    public String getCPForCNPj() { return CPForCNPj; }
 
     public String getNome() {
         return nome;

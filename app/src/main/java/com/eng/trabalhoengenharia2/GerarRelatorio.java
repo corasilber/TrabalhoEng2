@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.eng.trabalhoengenharia2.Controles.TelaGerarRelatorio;
+
 public class GerarRelatorio extends AppCompatActivity {
 
     CheckBox energia, agua;

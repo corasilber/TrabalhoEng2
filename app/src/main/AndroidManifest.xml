@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".MainActivity"
+            android:name=".Controles.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,15 +19,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistrarContas" />
+        <activity android:name=".Controles.RegistrarContas" />
         <activity android:name=".GerarRelatorio" />
-        <activity android:name=".TelaGerarRelatorio" />
+        <activity android:name=".Controles.TelaGerarRelatorio" />
         <activity android:name=".ExibirMes" />
-        <activity android:name=".TelaExibirMes" />
+        <activity android:name=".Controles.TelaExibirMes" />
         <activity android:name=".ExibirConta" />
-        <activity android:name=".TelaExibirConta" />
-        <activity android:name=".TelaCalculaVariacao" />
-        <activity android:name=".ListaMes"></activity>
+        <activity android:name=".Controles.TelaExibirConta" />
+        <activity android:name=".Controles.TelaCalculaVariacao" />
+        <activity android:name=".Controles.ListaMes"></activity>
     </application>
 
 </manifest>

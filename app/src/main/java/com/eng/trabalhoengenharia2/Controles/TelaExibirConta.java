@@ -1,10 +1,12 @@
-package com.eng.trabalhoengenharia2;
+package com.eng.trabalhoengenharia2.Controles;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.eng.trabalhoengenharia2.Entidades.Conta;
+import com.eng.trabalhoengenharia2.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

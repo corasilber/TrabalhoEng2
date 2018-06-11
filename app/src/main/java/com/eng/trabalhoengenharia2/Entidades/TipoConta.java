@@ -1,4 +1,4 @@
-package com.eng.trabalhoengenharia2;
+package com.eng.trabalhoengenharia2.Entidades;
 
 public enum TipoConta {
 
