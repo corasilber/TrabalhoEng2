@@ -22,6 +22,7 @@ public class TelaExibirConta extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     ArrayList<String> itemList;
     String titular;
+    String tipo;
 
     public TelaExibirConta() {
         database = FirebaseDatabase.getInstance();
@@ -33,6 +34,7 @@ public class TelaExibirConta extends AppCompatActivity {
         setContentView(R.layout.activity_tela_exibir_conta);
 
         titular = getIntent().getStringExtra("titular");
+        tipo = getIntent().getStringExtra("tipoConta");
 
         itemList = new ArrayList<>();
         adapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.label, itemList);
@@ -47,7 +49,10 @@ public class TelaExibirConta extends AppCompatActivity {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Conta conta = snapshot.getValue(Conta.class);
                     if(titular.equals(conta.getTitular())) {
-                        itemList.add("Tipo: " + conta.getTipoConta() + " Valor: " + conta.getLeituraAtual());
+                        String type = conta.getTipoConta().toString();
+                        if (tipo.equals(type)){
+                            itemList.add("Tipo: " + conta.getTipoConta() + " Valor: " + conta.getLeituraAtual());
+                        }
                     }
                 }
 
