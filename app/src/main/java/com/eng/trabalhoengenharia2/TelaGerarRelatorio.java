@@ -27,8 +27,9 @@ public class TelaGerarRelatorio extends AppCompatActivity {
     double valor;
 
     public TelaGerarRelatorio() {
-        database = FirebaseDatabase.getInstance();
-        ref = database.getReference("leituras");
+        Database db = new Database();
+        database = db.database;
+        ref = db.ref;
         consumo = 0;
         valor = 0;
     }

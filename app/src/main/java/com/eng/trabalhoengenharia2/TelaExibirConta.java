@@ -25,8 +25,9 @@ public class TelaExibirConta extends AppCompatActivity {
     String tipo;
 
     public TelaExibirConta() {
-        database = FirebaseDatabase.getInstance();
-        ref = database.getReference("leituras");
+        Database db = new Database();
+        database = db.database;
+        ref = db.ref;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {

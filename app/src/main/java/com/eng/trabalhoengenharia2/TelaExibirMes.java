@@ -33,8 +33,9 @@ public class TelaExibirMes extends AppCompatActivity {
     String tipo;
 
     public TelaExibirMes() {
-        database = FirebaseDatabase.getInstance();
-        ref = database.getReference("leituras");
+        Database db = new Database();
+        database = db.database;
+        ref = db.ref;
     }
 
     @Override

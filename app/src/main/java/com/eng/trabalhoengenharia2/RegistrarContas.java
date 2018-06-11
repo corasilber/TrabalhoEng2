@@ -1,13 +1,11 @@
 package com.eng.trabalhoengenharia2;
 
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.google.firebase.database.DatabaseReference;
@@ -64,7 +62,7 @@ public class RegistrarContas extends AppCompatActivity {
                  double anterior = Double.parseDouble(leituraAnterior.getText().toString());
                  double atual = Double.parseDouble(leituraAtual.getText().toString());
 
-                 Conta conta = new Conta(titularConta, tipoConta, mesConta, anoConta, anterior, atual);
+                 Conta conta = new Conta(titularConta, tipoConta, mesConta, anoConta, anterior, atual, atual - anterior);
 
                 // Write a message to the database
                 FirebaseDatabase database = FirebaseDatabase.getInstance();

@@ -47,10 +47,10 @@ public class ExibirMes extends AppCompatActivity {
                     type = "ENERGIA";
                 }
 
-                chamaTelaExibirMes();
+//                chamaTelaExibirMes();
 
-                //if(tela.equals("exibirMes"))   chamaTelaExibirMes();
-               //if(tela.equals("calculaVariacao")) chamaTelaCalculaVariacao();
+                if(tela.equals("exibirMes"))   chamaTelaExibirMes();
+                if(tela.equals("calculaVariacao")) chamaTelaCalculaVariacao();
             }
         });
     }
@@ -60,7 +60,6 @@ public class ExibirMes extends AppCompatActivity {
         mudaTela.putExtra("mes", mes.getText().toString());
         mudaTela.putExtra("ano", ano.getText().toString());
         mudaTela.putExtra("TipoConta",type);
-        //System.out.print(type);
         startActivity(mudaTela);
     }
 
@@ -68,6 +67,7 @@ public class ExibirMes extends AppCompatActivity {
         Intent mudaTela = new Intent(this, TelaCalculaVariacao.class);
         mudaTela.putExtra("mes", mes.getText().toString());
         mudaTela.putExtra("ano", ano.getText().toString());
+        mudaTela.putExtra("TipoConta",type);
         startActivity(mudaTela);
     }
 }

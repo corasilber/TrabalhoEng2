@@ -30,10 +30,10 @@ public class ExibirConta extends AppCompatActivity {
                 int tipo = 0;
 
                 switch (rd_group.getCheckedRadioButtonId()) {
-                    case R.id.aguaMes:
+                    case R.id.agua:
                         tipo = 1;
                         break;
-                    case R.id.energiaMes:
+                    case R.id.eletricidade:
                         tipo = 2;
                         break;
                 }
