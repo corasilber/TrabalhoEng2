@@ -30,9 +30,12 @@ public class TelaExibirMes extends AppCompatActivity {
     ArrayList<String> itemList;
     String stringMes;
     String stringAno;
+    String tipo;
+
     public TelaExibirMes() {
-        database = FirebaseDatabase.getInstance();
-        ref = database.getReference("leituras");
+        Database db = new Database();
+        database = db.database;
+        ref = db.ref;
     }
 
     @Override
@@ -44,6 +47,7 @@ public class TelaExibirMes extends AppCompatActivity {
 
         stringMes = getIntent().getStringExtra("mes");
         stringAno = getIntent().getStringExtra("ano");
+        tipo = getIntent().getStringExtra("TipoConta");
 
         itemList = new ArrayList<>();
         adapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.label, itemList);
@@ -58,7 +62,12 @@ public class TelaExibirMes extends AppCompatActivity {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Conta conta = snapshot.getValue(Conta.class);
                     if(stringMes.equals(conta.getMes()+"") && stringAno.equals(conta.getAno()+"")) {
-                        itemList.add("Tipo: " + conta.getTipoConta() + " Valor: " + conta.getLeituraAtual());
+                        String type = conta.getTipoConta().toString();
+                        //itemList.add(type);
+                        //itemList.add(tipo+"teste");
+                        if (tipo.equals(type)) {
+                            itemList.add("Tipo: " + conta.getTipoConta() + " Valor: " + conta.getLeituraAtual());
+                        }
                     }
                 }
 

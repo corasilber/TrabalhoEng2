@@ -20,13 +20,40 @@
         tools:layout_editor_absoluteY="85dp" />
 
     <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Escolha o tipo de conta"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/RadioExibirConta"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <RadioButton
+            android:id="@+id/agua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Agua" />
+
+        <RadioButton
+            android:id="@+id/eletricidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Eletricidade" />
+    </RadioGroup>
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="100dp"
         android:text="Titular"
         android:textSize="20dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="30dp"
         tools:layout_editor_absoluteX="105dp"
         tools:layout_editor_absoluteY="85dp" />
 
@@ -35,16 +62,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-         />
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/exibirConta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:width="50dp"
-        android:layout_gravity="center"
         android:text="Exibir" />
 
 </LinearLayout>

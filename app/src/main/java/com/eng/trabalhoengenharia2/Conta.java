@@ -8,16 +8,21 @@ public class Conta {
     private int ano;
     private double leituraAnterior;
     private double leituraAtual;
+    private double valorConta;
+    private double leituraMes;
+    private Conta contaAnoAnterior;
 
     public Conta(){}
 
-    public Conta(Titular titular, TipoConta tipoConta, int mes, int ano, double leituraAnterior, double leituraAtual) {
+    public Conta(Titular titular, TipoConta tipoConta, int mes, int ano, double leituraAnterior, double leituraAtual, double leituraMes) {
         this.titular = titular.getCPForCNPj();
         this.tipoConta = tipoConta;
         this.mes = mes;
         this.ano = ano;
         this.leituraAnterior = leituraAnterior;
         this.leituraAtual = leituraAtual;
+        this.leituraMes = leituraMes;
+        this.contaAnoAnterior = null;
     }
 
     public TipoConta getTipoConta() {
@@ -66,5 +71,29 @@ public class Conta {
 
     public void setLeituraAtual(double leituraAtual) {
         this.leituraAtual = leituraAtual;
+    }
+
+    public double getLeituraMes() {
+        return leituraMes;
+    }
+
+    public void setLeituraMes(double leituraMes) {
+        this.leituraMes = leituraMes;
+    }
+
+    public double getValorConta() {
+        return valorConta;
+    }
+
+    public void setValorConta(double valorConta) {
+        this.valorConta = valorConta;
+    }
+
+    public Conta getContaAnoAnterior() {
+        return contaAnoAnterior;
+    }
+
+    public void setContaAnoAnterior(Conta contaAnoAnterior) {
+        this.contaAnoAnterior = contaAnoAnterior;
     }
 }

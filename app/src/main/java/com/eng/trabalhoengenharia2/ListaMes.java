@@ -32,8 +32,9 @@ public class ListaMes extends AppCompatActivity {
         list = (ListView)findViewById(R.id.lista);
         list.setAdapter(adapter);
 
-        database = FirebaseDatabase.getInstance();
-        ref = database.getReference("leituras");
+        Database db = new Database();
+        database = db.database;
+        ref = db.ref;
 
         // Attach a listener to read the data at our posts reference
         ref.addValueEventListener(new ValueEventListener() {

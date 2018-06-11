@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 
 public class ExibirMes extends AppCompatActivity {
 
     EditText mes, ano;
+    String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +23,31 @@ public class ExibirMes extends AppCompatActivity {
         Button exibirMes = (Button) findViewById(R.id.exibirMes);
         mes = (EditText) findViewById(R.id.mes);
         ano = (EditText) findViewById(R.id.ano);
+        final RadioGroup rd_group = (RadioGroup) findViewById(R.id.groupMes);
 
         exibirMes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                int tipo = 0;
+
+                switch (rd_group.getCheckedRadioButtonId()) {
+                    case R.id.aguaMes:
+                        tipo = 1;
+                        break;
+                    case R.id.energiaMes:
+                        tipo = 2;
+                        break;
+                }
+
+                if (tipo == 1){
+                    type = "AGUA";
+                }
+                if (tipo == 2) {
+                    type = "ENERGIA";
+                }
+
+//                chamaTelaExibirMes();
 
                 if(tela.equals("exibirMes"))   chamaTelaExibirMes();
                 if(tela.equals("calculaVariacao")) chamaTelaCalculaVariacao();
@@ -36,6 +59,7 @@ public class ExibirMes extends AppCompatActivity {
         Intent mudaTela = new Intent(this, TelaExibirMes.class);
         mudaTela.putExtra("mes", mes.getText().toString());
         mudaTela.putExtra("ano", ano.getText().toString());
+        mudaTela.putExtra("TipoConta",type);
         startActivity(mudaTela);
     }
 
@@ -43,6 +67,7 @@ public class ExibirMes extends AppCompatActivity {
         Intent mudaTela = new Intent(this, TelaCalculaVariacao.class);
         mudaTela.putExtra("mes", mes.getText().toString());
         mudaTela.putExtra("ano", ano.getText().toString());
+        mudaTela.putExtra("TipoConta",type);
         startActivity(mudaTela);
     }
 }
