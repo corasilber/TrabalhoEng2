@@ -41,7 +41,9 @@ public class TelaGerarRelatorio extends AppCompatActivity {
         setContentView(R.layout.activity_tela_gerar_relatorio);
 
         final String tipoConta = getIntent().getStringExtra("tipo");
+        String mesString = getIntent().getStringExtra("mes");
         String anoString = getIntent().getStringExtra("ano");
+        final int mes = Integer.parseInt(mesString);
         final int ano = Integer.parseInt(anoString);
 
         itemList = new ArrayList<>();
@@ -59,12 +61,12 @@ public class TelaGerarRelatorio extends AppCompatActivity {
                     Conta conta = snapshot.getValue(Conta.class);
 
                     if(tipoConta.equals("Água")){
-                        if(ano == conta.getMes()) {
+                        if(mes == conta.getMes() && ano == conta.getAno()) {
                             consumo += conta.getLeituraAtual();
                             valor += conta.getLeituraAtual() * 2;
                         }
                     } else if(tipoConta.equals("Energia")){
-                        if(ano == conta.getMes()) {
+                        if(mes == conta.getMes() && ano == conta.getAno()) {
                             consumo += conta.getLeituraAtual();
                             valor += conta.getLeituraAtual() * 2;
                         }

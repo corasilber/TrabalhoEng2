@@ -30,7 +30,7 @@ public class RegistrarContas extends AppCompatActivity {
         botaoAdiciona = (Button) findViewById(R.id.cadastrar);
         titular = (EditText) findViewById(R.id.titular);
         mes = (EditText) findViewById(R.id.mes);
-        ano = (EditText) findViewById(R.id.ano);
+        ano = (EditText) findViewById(R.id.mes);
         leituraAnterior = (EditText) findViewById(R.id.leituraAnterior);
         leituraAtual = (EditText) findViewById(R.id.leituraAtual);
 

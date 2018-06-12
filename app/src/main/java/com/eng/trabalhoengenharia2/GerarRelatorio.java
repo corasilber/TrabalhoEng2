@@ -13,7 +13,7 @@ import com.eng.trabalhoengenharia2.Controles.TelaGerarRelatorio;
 public class GerarRelatorio extends AppCompatActivity {
 
     CheckBox energia, agua;
-    EditText ano;
+    EditText ano,mes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class GerarRelatorio extends AppCompatActivity {
         Button gerarRelatorio = (Button) findViewById(R.id.gerarRelatorio);
         energia = (CheckBox) findViewById(R.id.checkEnergia);
         agua = (CheckBox) findViewById(R.id.checkAgua);
+        mes = (EditText) findViewById(R.id.mes);
         ano = (EditText) findViewById(R.id.ano);
 
 
@@ -43,6 +44,7 @@ public class GerarRelatorio extends AppCompatActivity {
 
         Intent mudaTela = new Intent(this, TelaGerarRelatorio.class);
         mudaTela.putExtra("tipo", tipo);
+        mudaTela.putExtra("mes", mes.getText().toString());
         mudaTela.putExtra("ano", ano.getText().toString());
         startActivity(mudaTela);
 
